@@ -1,18 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "./src/screens/HomeScreen";
-import PerfilScreen from "./src/screens/PerfilScreen";
 
-const Stack = createNativeStackNavigator();
+import AppNavigator from "./src/navigation/AppNavigator";
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-
-        <Stack.Screen name="Perfil" component={PerfilScreen} />
-      </Stack.Navigator>
+      <AppNavigator />
     </NavigationContainer>
   );
 }
