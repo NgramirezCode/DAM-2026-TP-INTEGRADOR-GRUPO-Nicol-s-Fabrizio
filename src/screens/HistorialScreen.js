@@ -1,14 +1,14 @@
-import { View, Text, Button } from "react-native";
+import react from "react";
+import { View, Text, Pressable } from "react-native";
 
-export default function HistorialScreen() {
+export default function HistorialScreen({ navigation }) {
   return (
     <View>
       <Text>Pantalla Historial</Text>
 
-      <Button
-        title="Volver a Home"
-        onPress={() => navigation.navigate("Home")}
-      />
+      <Pressable onPress={() => navigation.navigate("Home")}>
+        <Text>Volver a Home</Text>
+      </Pressable>
     </View>
   );
 }

@@ -1,14 +1,14 @@
-import { View, Text } from "react-native";
+import react from "react";
+import { View, Text, Pressable } from "react-native";
 
-export default function MisPagosScreen() {
+export default function MisPagosScreen({ navigation }) {
   return (
     <View>
       <Text>Pantalla Mis Pagos</Text>
 
-      <Button
-        title="Ir a Historial"
-        onPress={() => navigation.navigate("Historial")}
-      />
+      <Pressable onPress={() => navigation.navigate("Historial")}>
+        <Text>Ir a Historial</Text>
+      </Pressable>
     </View>
   );
 }
