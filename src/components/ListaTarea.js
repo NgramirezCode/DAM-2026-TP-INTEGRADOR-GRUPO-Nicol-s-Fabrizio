@@ -9,7 +9,7 @@ export default function ListaTarea({ data, emptyMessage }) {
     <FlatList
       data={data}
       keyExtractor={(item) => item.id}
-      renderItem={({ item }) => <Tarea task={item} />}
+      renderItem={({ item }) => <Tarea Tarea={item} />}
       ListEmptyComponent={<Text>{emptyMessage}</Text>}
       contentContainerStyle={{ paddingBottom: 20 }}
     />
