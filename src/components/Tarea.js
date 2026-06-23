@@ -1,31 +1,23 @@
-// crear lista de tareas
-import React, { useState } from "react";
-import { View, Text, TextInput, Button, FlatList } from "react-native";
+import React, { useContext } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import { TaskContext } from "../context/TaskContext";
 
-export default function Tarea() {
-  const [tarea, setTarea] = useState("");
-  const [tareas, setTareas] = useState([]);
-
-  const agregarTarea = () => {
-    if (tarea.trim() !== "") {
-      setTareas([...tareas, tarea]);
-      setTarea("");
-    }
-  };
+export default function Tarea({ task }) {
+  const { completeTask, deleteTask } = useContext(TaskContext);
 
   return (
     <View>
-      <TextInput
-        placeholder="Ingrese una tarea"
-        value={tarea}
-        onChangeText={setTarea}
-      />
-      <Button title="Agregar" onPress={agregarTarea} />
-      <FlatList
-        data={tareas}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => <Text>{item}</Text>}
-      />
+      <Text>{task.text}</Text>
+
+      {!task.completed ? (
+        <TouchableOpacity onPress={() => completeTask(task.id)}>
+          <Text>Completar</Text>
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity onPress={() => deleteTask(task.id)}>
+          <Text>Eliminar</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }
