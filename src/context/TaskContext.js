@@ -80,29 +80,3 @@ export const TaskProvider = ({ children }) => {
     </TaskContext.Provider>
   );
 };
-
-{
-  /*
-import React, { createContext, useState } from "react";
-import { logicAddTask } from "./TaskForm";
-import { logicCompleteTask } from "./TaskUpdate";
-import { logicDeleteTask } from "./TaskDelete";
-
-export const TaskContext = createContext();
-
-export const TaskProvider = ({ children }) => {
-  const [tasks, setTasks] = useState([]);
-
-  // Usamos la lógica importada pasándole el estado previo
-  const addTask = (text) => setTasks((prev) => logicAddTask(prev, text));
-  const completeTask = (id) => setTasks((prev) => logicCompleteTask(prev, id));
-  const deleteTask = (id) => setTasks((prev) => logicDeleteTask(prev, id));
-
-  return (
-    <TaskContext.Provider value={{ tasks, addTask, completeTask, deleteTask }}>
-      {children}
-    </TaskContext.Provider>
-  );
-};
-*/
-}
