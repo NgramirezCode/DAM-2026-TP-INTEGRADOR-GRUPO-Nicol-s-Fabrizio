@@ -1,16 +1,27 @@
-import react from "react";
-import { View, Text, Pressable } from "react-native";
-import ViewTarea from "../components/ViewTarea";
+{
+  /** Pantalla Principal */
+}
 
-export default function HomeScreen({ navigation }) {
+import React, { useContext } from "react";
+import { View, Text, Pressable } from "react-native";
+
+import { TaskContext } from "../context/TaskContext";
+import ListaTarea from "../components/ListaTarea";
+
+// Componente HomeScreen que representa la pantalla de inicio de la aplicación
+export default function HomeScreen() {
+  // usa directamente la variable guardada
+  const { pendingTasks } = useContext(TaskContext); // Deja de analizar el array.
+
   return (
     <View>
-      <Text>Home Screen</Text>
-      {/* Muestra el componente ViewTarea en la pantalla de inicio */}
-      <ViewTarea />
-      <Pressable onPress={() => navigation.navigate("MisPagos")}>
-        <Text>Ir a Mis Pagos</Text>
-      </Pressable>
+      <Text>Tareas Pendientes</Text>
+      <View>
+        <ListaTarea
+          data={pendingTasks}
+          emptyMessage="¡Todo al día! No hay tareas pendientes."
+        />
+      </View>
     </View>
   );
 }
