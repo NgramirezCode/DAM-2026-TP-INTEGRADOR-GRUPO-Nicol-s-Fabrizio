@@ -1,14 +1,20 @@
+{
+  /** Pantalla Secundaria (Carga de Tareas) */
+}
+
 import react from "react";
 import { View, Text, Pressable } from "react-native";
 
-export default function MisPagosScreen({ navigation }) {
+import InputTarea from "../components/InputTarea";
+
+export default function MisPagosScreen() {
   return (
     <View>
-      <Text>Pantalla Mis Pagos</Text>
-
-      <Pressable onPress={() => navigation.navigate("Historial")}>
-        <Text>Ir a Historial</Text>
-      </Pressable>
+      <Text>Ingreso de Tareas</Text>
+      <View>
+        <Text>Cargar Nuevo Pago/Tarea</Text>
+        <InputTarea />
+      </View>
     </View>
   );
 }
