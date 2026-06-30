@@ -1,11 +1,12 @@
-import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
 
+import { TaskProvider } from "./src/context/TaskContext";
 import AppNavigator from "./src/navigation/AppNavigator";
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <TaskProvider>
       <AppNavigator />
-    </NavigationContainer>
+    </TaskProvider>
   );
 }
