@@ -1,23 +1,25 @@
 import React, { useContext } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import { Controlador } from "../controler/Controlador";
+
+import { TaskContext } from "../context/TaskContext";
 
 // Componente Tarea que representa una tarea individual
-export default function Tarea({ Tarea }) {
-  // Accede a las funciones completeTarea y deleteTarea desde el contexto
-  const { completeTarea, deleteTarea } = useContext(Controlador);
+export default function Tarea({ task }) {
+  // Accede a las funciones completeTask y deleteTask desde el contexto
+  const { completeTask, deleteTask } = useContext(TaskContext);
 
   return (
     <View>
-      <Text>{Tarea.text}</Text>
+      <Text>{task.text}</Text>
       {/* Muestra un botón para completar la tarea si no está completada, o un
       botón para eliminarla si ya está completada */}
-      {!Tarea.completed ? (
-        <TouchableOpacity onPress={() => completeTarea(Tarea.id)}>
+      {!task.completed ? (
+        <TouchableOpacity onPress={() => completeTask(task.id)}>
           <Text>Completar</Text>
+          <Text> </Text>
         </TouchableOpacity>
       ) : (
-        <TouchableOpacity onPress={() => deleteTarea(Tarea.id)}>
+        <TouchableOpacity onPress={() => deleteTask(task.id)}>
           <Text>Eliminar</Text>
         </TouchableOpacity>
       )}
